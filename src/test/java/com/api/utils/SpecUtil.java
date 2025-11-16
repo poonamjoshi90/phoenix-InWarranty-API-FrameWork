@@ -53,7 +53,23 @@ public class SpecUtil {
 					.setBaseUri(ConfigManager.getProperties("BASE_URI"))
 					.setContentType(ContentType.JSON)
 					.setAccept(ContentType.JSON)
-					.addHeader("Autorization", AuthTokenProvider.getToken(role))
+					.addHeader("Authorization", AuthTokenProvider.getToken(role))
+					.log(LogDetail.URI)
+					.log(LogDetail.METHOD)
+					.log(LogDetail.HEADERS)
+					.log(LogDetail.BODY)
+					.build();
+					return requestSpecification;
+					
+	}
+	public static RequestSpecification RequestSpecWIthAuth(Roles role,Object payload)
+	{
+		 RequestSpecification requestSpecification=new RequestSpecBuilder()
+					.setBaseUri(ConfigManager.getProperties("BASE_URI"))
+					.setContentType(ContentType.JSON)
+					.setAccept(ContentType.JSON)
+					.addHeader("Authorization", AuthTokenProvider.getToken(role))
+					.setBody(payload)
 					.log(LogDetail.URI)
 					.log(LogDetail.METHOD)
 					.log(LogDetail.HEADERS)

@@ -2,25 +2,21 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-15T09:18:22 IST" name="Default suite" finished-at="2025-11-15T09:18:24 IST" duration-ms="2610">
+  <suite started-at="2025-11-16T00:18:20 IST" name="Default suite" finished-at="2025-11-16T00:18:25 IST" duration-ms="4775">
     <groups>
     </groups>
-    <test started-at="2025-11-15T09:18:22 IST" name="Default test" finished-at="2025-11-15T09:18:24 IST" duration-ms="2610">
-      <class name="com.api.test.MasterAPITest">
-        <test-method signature="MasterAPITest()[pri:0, instance:com.api.test.MasterAPITest@27f981c6]" started-at="2025-11-15T09:18:22 IST" name="MasterAPITest" finished-at="2025-11-15T09:18:24 IST" duration-ms="2568" status="FAIL">
+    <test started-at="2025-11-16T00:18:20 IST" name="Default test" finished-at="2025-11-16T00:18:25 IST" duration-ms="4775">
+      <class name="com.api.test.CreateJobAPITest">
+        <test-method signature="createJobAPITest()[pri:0, instance:com.api.test.CreateJobAPITest@4b8ee4de]" started-at="2025-11-16T00:18:20 IST" name="createJobAPITest" finished-at="2025-11-16T00:18:25 IST" duration-ms="4711" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[2 expectations failed.
-Expected status code <200> but was <401>.
-
-Expected content-type "JSON" doesn't match actual content-type "text/html; charset=utf-8".
+              <![CDATA[1 expectation failed.
+Expected status code <200> but was <500>.
 ]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: 2 expectations failed.
-Expected status code <200> but was <401>.
-
-Expected content-type "JSON" doesn't match actual content-type "text/html; charset=utf-8".
+              <![CDATA[java.lang.AssertionError: 1 expectation failed.
+Expected status code <200> but was <500>.
 
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
@@ -39,7 +35,7 @@ at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.j
 at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
 at io.restassured.internal.ResponseSpecificationImpl.validate(ResponseSpecificationImpl.groovy:101)
 at io.restassured.internal.ValidatableResponseOptionsImpl.spec(ValidatableResponseOptionsImpl.java:288)
-at com.api.test.MasterAPITest.MasterAPITest(MasterAPITest.java:27)
+at com.api.test.CreateJobAPITest.createJobAPITest(CreateJobAPITest.java:45)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -73,8 +69,8 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- MasterAPITest -->
-      </class> <!-- com.api.test.MasterAPITest -->
+        </test-method> <!-- createJobAPITest -->
+      </class> <!-- com.api.test.CreateJobAPITest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

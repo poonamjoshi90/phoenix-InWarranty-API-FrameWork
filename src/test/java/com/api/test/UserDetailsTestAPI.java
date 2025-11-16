@@ -18,7 +18,7 @@ import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 
 import org.testng.annotations.Test;
-
+import  static com.api.constant.Roles.*;
 import io.restassured.http.Header;
 
 public class UserDetailsTestAPI {
@@ -29,11 +29,11 @@ public class UserDetailsTestAPI {
 		
 	//	Header authheader14 = new Header("Authorization",AuthTokenProvider.getToken(Roles.FD));
 		given()
-		 .spec(SpecUtil.RequestSpecWIthAuth(Roles.FD))
+		 .spec(SpecUtil.RequestSpecWIthAuth(FD))
 		.when()
 		.get("userdetails")
 		.then()
-		.spec(SpecUtil.responsespec())
+		.spec(SpecUtil.responsespec_Ok())
 		 .and()
 	      .body("message",equalTo("Success"))
 	      .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("responseSchema/UserDetailsSchema.json"));

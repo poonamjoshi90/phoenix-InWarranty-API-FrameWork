@@ -6,8 +6,8 @@ instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0"><modelVersion>4
   <name>PhoenixTestAutomationFramework</name>
   <description>PhoenixTestAutomationFramework</description>
   <properties>
-	<maven.complier.source>11</maven.complier.source>
-	<maven.complier.target>11</maven.complier.target>
+	<maven.complier.source>16</maven.complier.source>
+	<maven.complier.target>16</maven.complier.target>
   </properties>
   
   <dependencies>

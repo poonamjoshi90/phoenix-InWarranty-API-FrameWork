@@ -1,28 +1,31 @@
 package com.api.utils;
 import static  io.restassured.RestAssured.*;
 
+import  static com.api.constant.Roles.*;
+
 import com.api.constant.Roles;
 import com.api.pojo.UserCredentials;
 import io.restassured.http.ContentType;
+ 
 public class AuthTokenProvider {
 
 	public static String  getToken(Roles role) {
 		
 		UserCredentials userCredentials=null;
-		if(role==Roles.FD)
+		if(role==FD)
 		{
 			userCredentials=	new UserCredentials("iamfd","password");
 		}
-		else if(role==Roles.SUP)
+		else if(role==SUP)
 		{
 			userCredentials=	new UserCredentials("iamsup","password");
 		}
-		else if(role==Roles.SUP)
+		else if(role==SUP)
 		{
 			userCredentials=	new UserCredentials("iameng","password");
 		}
 		
-		else if(role==Roles.QC)
+		else if(role==QC)
 		{
 			userCredentials=	new UserCredentials("iamqc","password");
 		}
