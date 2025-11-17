@@ -3,10 +3,10 @@ package com.api.test;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import static   org.hamcrest.Matchers.*;
-import com.api.constant.Roles;
+import static com.api.constant.Roles.*;
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.ConfigManager;
-import com.api.utils.SpecUtil;
+import static  com.api.utils.SpecUtil.*;
 
 import  static io.restassured.module.jsv.JsonSchemaValidator.*;
 
@@ -21,16 +21,15 @@ import javax.xml.crypto.Data;
 
 public class CountAPITest {
 	
-	@Test
+	@Test(description="Verify Count of AllResponse in API should show correctly",groups= {"api","smoke","regression"})
 	public void VerifyCountAPIResponse()
 	{
-		//Header authheader = new Header("Authorization",AuthTokenProvider.getToken(Roles.FD));
 		given()
-		 .spec(SpecUtil.RequestSpecWIthAuth(Roles.FD))
+		 .spec(RequestSpecWIthAuth(FD))
 		 .when()
 		 .get("/dashboard/count")
 		 .then()
-		  .spec(SpecUtil.responsespec_Ok())
+		  .spec(responsespec_Ok())
 		 .body("message", Matchers.equalTo("Success"))
 		 .time(Matchers.lessThan(1000L))
 		 .body("data", Matchers.notNullValue())
@@ -41,15 +40,16 @@ public class CountAPITest {
 		
 	}
 	
-	@Test
+	@Test(description="Verify Status code is 401 for invalid Token",groups= {"api","smoke","regression"})
 	public void countAPITest_MissingAutoToken()
 	{
 		given()
-		 .spec(SpecUtil.RequestSpecWIthAuth(Roles.FD))
+		 .spec(requestSpec())
 		.when()
-		 .get("/dashboard/count")
-		  .then()
-		  .spec(SpecUtil.responsespec_Text(401));
+		.post("/master")
+		.then()
+		  .spec(responsespec_Text(401));
+		
 		
 		
 	}

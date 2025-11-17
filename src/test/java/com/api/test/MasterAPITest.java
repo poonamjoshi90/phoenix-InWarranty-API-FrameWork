@@ -3,51 +3,43 @@ import static  io.restassured.RestAssured.*;
 
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
-
+import static com.api.constant.Roles.*;
 import com.api.constant.Roles;
 import com.api.utils.AuthTokenProvider;
-import com.api.utils.ConfigManager;
-import com.api.utils.SpecUtil;
-
+import static  com.api.utils.SpecUtil.*;
 import io.restassured.http.Header;
-import io.restassured.module.jsv.JsonSchemaValidator;
+import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 public class MasterAPITest {
 	
-	@Test
+	@Test (description="Verify Master Data should show correctly",groups= {"api","smoke","regression"})
+
 	public void MasterAPITest()
-	{
-		
-		Header authheader = new Header("Authorization",AuthTokenProvider.getToken(Roles.FD));
-		given()
-		 .spec(SpecUtil.RequestSpecWIthAuth(Roles.FD))
+	{	given()
+		 .spec(RequestSpecWIthAuth(FD))
 		.when()
 		.post("/master")
 		.then()
-		.spec(SpecUtil.responsespec_Ok())
+		.spec(responsespec_Ok())
 		.body("message",Matchers.equalTo("Success"))
 		.body("data",Matchers.notNullValue())
 		.body("data", Matchers.hasKey("mst_oem"))
 		.body("data", Matchers.hasKey("mst_model"))
 		.body("$", Matchers.hasKey("message"))
 		.body("$", Matchers.hasKey("data"))
-		 .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("responseSchema/MasterAPIResponseSchema.json"));
+		 .body(matchesJsonSchemaInClasspath("responseSchema/MasterAPIResponseSchema.json"));
 	}
-	@Test
+	
+	
+	@Test (description="Verify Invalid Token in  Master API",groups= {"api","smoke","regression"})
 	public void InvalidTokenForMasterAPI()
 	{
 		given()
-		.and()
-		.baseUri(ConfigManager.getProperties("BASE_URI"))
-		.and()
-		.and()
-		.contentType("")
+		 .spec(requestSpec())
 		.when()
 		.post("/master")
 		.then()
-		.log()
-		.all()
-		.statusCode(401);
+		  .spec(responsespec_Text(401));
 		
 	}
 
