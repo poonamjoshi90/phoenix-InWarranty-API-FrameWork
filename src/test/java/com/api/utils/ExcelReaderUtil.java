@@ -13,11 +13,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ExcelReaderUtil {
 
 	public static void main(String[] args) throws IOException {
-	
-InputStream is=Thread.currentThread().getContextClassLoader().getSystemResourceAsStream("testData/LoginCredsExcelData.xlsx");
 
- // XSSFWorkbook myWorkBook= new XSSFWorkBook(is);
- XSSFWorkbook myWorkbook= new XSSFWorkbook(is);
+InputStream irs = Thread.currentThread().getContextClassLoader()
+.getResourceAsStream("testData/LoginCredsExcelData.xlsx");
+
+  XSSFWorkbook myWorkbook= new XSSFWorkbook(irs);
 
  
  XSSFSheet mysheet=myWorkbook.getSheet("LoginTestData");
@@ -27,18 +27,19 @@ InputStream is=Thread.currentThread().getContextClassLoader().getSystemResourceA
  int lastRowIndex=mysheet.getLastRowNum();
  XSSFRow rowheader=mysheet.getRow(0);
  int lastIndexOfCol= rowheader.getLastCellNum()-1;
- //System.out.print(mycell);
+
  
-  for(int rowindex=0;rowindex<lastRowIndex;rowindex++)
+  for(int rowindex=0;rowindex<=lastRowIndex;rowindex++)
   {
-	  for(int colindex=0;lastIndexOfCol<colindex;colindex++)
+	  for(int colindex=0;colindex<=lastIndexOfCol;colindex++)
 	  {
 		  myRow=mysheet.getRow(rowindex);
 		  mycell=myRow.getCell(colindex);
 		  System.out.print(mycell + " ");
 	  }
+	  System.out.println("");
   }
-  System.out.print("");
+ 
   
 				
 
