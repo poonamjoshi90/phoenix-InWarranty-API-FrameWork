@@ -7,4 +7,6 @@ public record UserCredentials
 	 String password
 	 )
 	
-	{}
+	{
+	
+	}

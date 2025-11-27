@@ -1,4 +1,4 @@
-package com.api.test;
+package com.api.testDriven;
 
 import static org.hamcrest.Matchers.equalTo;
 
@@ -12,10 +12,8 @@ import com.api.constant.Product;
 import com.api.constant.Roles;
 import static com.api.constant.Roles.*;
 import com.api.request.model.CreateJobPayload;
-import com.api.request.model.Customer;
 import com.api.request.model.CustomerAddress;
 import com.api.request.model.CustomerProduct;
-import com.api.request.model.Problems;
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.ConfigManager;
 import com.api.utils.DateTimeUtil;
@@ -27,28 +25,16 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 
 import static  io.restassured.RestAssured.*;
 
-public class CreateJobAPITest {
+public class CreateJobAPIJsonDataDrivenTest {
 	
 	CreateJobPayload createJobPayload;
 	
-	@BeforeMethod(description="Creating create Job API payload with FD user",groups= {"api","regression","smoke"})
-	public void setup()
-	{
-	Customer customer =new Customer("Poonam", "Joshi", "9099091290", "", "test@mail.com", "");
-	CustomerAddress customeraddress = new CustomerAddress("Flat-No-967", "ABC","Test123", "Test12", "TestArea12", "92122","India", "Delhi");
-	CustomerProduct customer_product = new CustomerProduct(DateTimeUtil.getTimeWithDaysAgo(10), "909909909901001", "909909909901001", "909909909901001", DateTimeUtil.getTimeWithDaysAgo(10), Product.Nexus_2.getCode(), Model.GALLEXY.getCode());
-	Problems problems = new Problems(Problem.POOR_BATTERY_LIFE.getCode(),"Batary Issue");
-	List<Problems> problemList= new ArrayList<Problems>();
-	problemList.add(problems);
 	
-	 //createJobPayload= new CreateJobPayload(0, 2, 1, 1, customer, customeraddress, customer_product, problemList);
-	
-
-	}
-	
-	@Test(description="verify create job sucessfully with FD user",groups= {"api","regression","smoke"})
-
-	public void createJobAPITest()
+	@Test(description="Verify if create api is able to create job",
+			dataProviderClass=com.dataProviders.DataProviderUtils.class,
+					groups= {"api","regression","smoke"},
+			dataProvider="CreateJobAPIJsonDataProvider")
+	public void createJobAPITest(CreateJobPayload createJobPayload)
 	{
 		given()
 		.spec(RequestSpecWIthAuth(FD, createJobPayload))

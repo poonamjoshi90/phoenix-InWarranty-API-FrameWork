@@ -3,6 +3,7 @@ import org.hamcrest.Matchers;
 import com.api.request.model.UserCredentials;
 import com.api.constant.Roles;
 import com.api.utils.ConfigManager;
+import com.dataProvider.api.beans.UserBean;
 import com.api.utils.AuthTokenProvider;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -50,6 +51,24 @@ public class SpecUtil {
 		
 	
 	}
+	public static RequestSpecification  requestSpec(UserBean userBean)
+	{
+		 RequestSpecification request=new RequestSpecBuilder()
+				 .setBaseUri(ConfigManager.getProperties("BASE_URI"))
+		.setContentType(ContentType.JSON)
+		.setAccept(ContentType.JSON)
+		.setBody(userBean)
+		.log(LogDetail.URI)
+		.log(LogDetail.METHOD)
+		.log(LogDetail.HEADERS)
+		.log(LogDetail.BODY)
+		.build();
+		return request;
+		
+		
+	
+	}
+	
 	
 	public static RequestSpecification RequestSpecWIthAuth(Roles role)
 	{

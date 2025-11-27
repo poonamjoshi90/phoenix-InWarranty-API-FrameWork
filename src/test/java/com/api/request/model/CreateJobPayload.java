@@ -3,6 +3,10 @@ package com.api.request.model;
 import java.util.Arrays;
 import java.util.List;
 
+import com.api.constant.Problem;
+import com.api.request.model.*;
+
+
 public record CreateJobPayload (
 	
 	  int mst_service_location_id,

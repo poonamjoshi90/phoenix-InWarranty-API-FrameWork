@@ -18,7 +18,7 @@ public class ReadCSVFile {
 		
 		//File csvFile= new File("C:\\Users\\umesh\\git\\repository\\PhoenixTestAutomationFramework\\src\\main\\resources\\testData\\loginCredits.csv");
 		//FileReader fr= new FileReader(csvFile);
-		
+		String csvdata=null;
 		InputStream irs= Thread.currentThread().getContextClassLoader().getResourceAsStream("testData/loginCredits.csv");
 		InputStreamReader reader= new InputStreamReader(irs);
 		CSVReader csvReader= new CSVReader(reader);
@@ -26,6 +26,7 @@ public class ReadCSVFile {
 List<String[]>	dataList=	csvReader.readAll();
 
      // System.out.print(dataList);
+//open new file csv
       for(String[]dataArray :dataList)
       {
     	System.out.println(dataArray[0]);
