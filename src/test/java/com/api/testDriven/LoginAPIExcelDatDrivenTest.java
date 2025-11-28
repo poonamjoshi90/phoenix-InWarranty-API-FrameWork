@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 import com.api.request.model.UserCredentials;
+import com.dataProvider.api.beans.UserBean;
 
 
 public class LoginAPIExcelDatDrivenTest {
@@ -18,11 +19,11 @@ public class LoginAPIExcelDatDrivenTest {
 			dataProvider="LoginAPIExcelDataProvider"
 			)
 	
-	public  void loginAPITest( UserCredentials userCredentials) throws IOException
+	public  void loginAPITest( UserBean userBean)
 	{
 		
 		   given()
-		   .spec(requestSpec(userCredentials))  
+		   .spec(requestSpec(userBean))  
 	       .when()
 	     .post("login")
 	     .then()
