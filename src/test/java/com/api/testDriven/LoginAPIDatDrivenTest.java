@@ -1,33 +1,28 @@
 package com.api.testDriven;
-import static  io.restassured.RestAssured.*;
-
-import static   org.hamcrest.Matchers.*;
+import static com.api.utils.SpecUtil.requestSpec;
+import static com.api.utils.SpecUtil.responsespec_Ok;
+import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.equalTo;
 
 import java.io.IOException;
 
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.*;
 import org.testng.annotations.Test;
-import com.api.utils.ConfigManager;
-import  static com.api.utils.SpecUtil.*;
+
 import com.dataProvider.api.beans.UserBean;
 
-import io.restassured.http.ContentType;
-import static io.restassured.module.jsv.JsonSchemaValidator.*;
-
 public class LoginAPIDatDrivenTest {
-	
+
 	@Test(description="verify login with FD user",groups= {"api","regression","smoke"},
 			dataProviderClass=com.dataProviders.DataProviderUtils.class,
 			dataProvider="LoginAPIDataProvider"
 			)
-	
+
 	public  void loginAPITest(UserBean userBean) throws IOException
 	{
-		
+
 		   given()
-		   .spec(requestSpec(userBean))  
+		   .spec(requestSpec(userBean))
 	       .when()
 	     .post("login")
 	     .then()
@@ -35,10 +30,10 @@ public class LoginAPIDatDrivenTest {
 	      .and()
 	      .body("message",equalTo("Success"))
 	      .body(matchesJsonSchemaInClasspath("responseSchema/LoginResponseSchema2.json"));
-	      
-	     
-		
-		
+
+
+
+
 	}
 
 }

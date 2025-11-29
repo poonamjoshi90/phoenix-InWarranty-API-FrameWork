@@ -1,13 +1,13 @@
 package com.dataProvider.api.beans;
 
 public class UserPOJO {
-	
+
 	private String username;
 	private String password;
-	
+
 	public UserPOJO()
 	{
-		
+
 	}
 	public UserPOJO(String username, String password) {
 		super();
@@ -30,6 +30,6 @@ public class UserPOJO {
 	public String toString() {
 		return "UserPOJO [username=" + username + ", password=" + password + "]";
 	}
-	
+
 
 }

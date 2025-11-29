@@ -1,19 +1,22 @@
 package com.api.utils;
-import static  io.restassured.RestAssured.*;
-import  static com.api.constant.Roles.*;
+import static com.api.constant.Roles.ENG;
+import static com.api.constant.Roles.FD;
+import static com.api.constant.Roles.QC;
+import static com.api.constant.Roles.SUP;
+import static io.restassured.RestAssured.given;
+
 import   com.api.constant.Roles;
 import com.api.request.model.UserCredentials;
-import com.api.utils.ConfigManager;
+
 import io.restassured.http.ContentType;
- import com.api.utils.*;
 public class AuthTokenProvider {
-	
+
 	private AuthTokenProvider()
-	{ 
-		
+	{
+
 	}
 		public static String  getToken( Roles role) {
-		
+
 		UserCredentials userCredentials=null;
 		if(role==FD)
 		{
@@ -27,12 +30,12 @@ public class AuthTokenProvider {
 		{
 			userCredentials=	new UserCredentials("iameng","password");
 		}
-		
+
 		else if(role==QC)
 		{
 			userCredentials=	new UserCredentials("iamqc","password");
 		}
-	
+
 	String token=	given()
 		 .baseUri(ConfigManager.getProperties("BASE_URI"))
 		 .and()
@@ -46,11 +49,11 @@ public class AuthTokenProvider {
 		 .body()
 		 .jsonPath()
 		 .getString("data.token");
-	
+
 	System.out.println("------------------------------------");
 	System.out.println(token);
 	return token;
-		 
+
 
 	}
 

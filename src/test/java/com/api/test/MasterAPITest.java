@@ -1,17 +1,17 @@
 package com.api.test;
-import static  io.restassured.RestAssured.*;
+import static com.api.constant.Roles.FD;
+import static com.api.utils.SpecUtil.RequestSpecWIthAuth;
+import static com.api.utils.SpecUtil.requestSpec;
+import static com.api.utils.SpecUtil.responsespec_Ok;
+import static com.api.utils.SpecUtil.responsespec_Text;
+import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
-import static com.api.constant.Roles.*;
-import com.api.constant.Roles;
-import com.api.utils.AuthTokenProvider;
-import static  com.api.utils.SpecUtil.*;
-import io.restassured.http.Header;
-import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 public class MasterAPITest {
-	
+
 	@Test (description="Verify Master Data should show correctly",groups= {"api","smoke","regression"})
 
 	public void MasterAPITest()
@@ -29,8 +29,8 @@ public class MasterAPITest {
 		.body("$", Matchers.hasKey("data"))
 		 .body(matchesJsonSchemaInClasspath("responseSchema/MasterAPIResponseSchema.json"));
 	}
-	
-	
+
+
 	@Test (description="Verify Invalid Token in  Master API",groups= {"api","smoke","regression"})
 	public void InvalidTokenForMasterAPI()
 	{
@@ -40,7 +40,7 @@ public class MasterAPITest {
 		.post("/master")
 		.then()
 		  .spec(responsespec_Text(401));
-		
+
 	}
 
 }

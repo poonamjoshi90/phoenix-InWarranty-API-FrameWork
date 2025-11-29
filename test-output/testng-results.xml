@@ -1,55 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-29T00:43:25 IST" name="Default suite" finished-at="2025-11-29T00:43:31 IST" duration-ms="5792">
+  <suite started-at="2025-11-29T18:51:58 IST" name="Default suite" finished-at="2025-11-29T18:52:02 IST" duration-ms="4834">
     <groups>
       <group name="regression">
-        <method signature="LoginAPIExcelDatDrivenTest.loginAPITest(com.dataProvider.api.beans.UserBean)[pri:0, instance:com.api.testDriven.LoginAPIExcelDatDrivenTest@29215f06]" name="loginAPITest" class="com.api.testDriven.LoginAPIExcelDatDrivenTest"/>
+        <method signature="CreateJobAPIExcelDataDrivenTest.createJobAPITest(com.api.request.model.CreateJobPayload)[pri:0, instance:com.api.testDriven.CreateJobAPIExcelDataDrivenTest@506ae4d4]" name="createJobAPITest" class="com.api.testDriven.CreateJobAPIExcelDataDrivenTest"/>
       </group> <!-- regression -->
       <group name="smoke">
-        <method signature="LoginAPIExcelDatDrivenTest.loginAPITest(com.dataProvider.api.beans.UserBean)[pri:0, instance:com.api.testDriven.LoginAPIExcelDatDrivenTest@29215f06]" name="loginAPITest" class="com.api.testDriven.LoginAPIExcelDatDrivenTest"/>
+        <method signature="CreateJobAPIExcelDataDrivenTest.createJobAPITest(com.api.request.model.CreateJobPayload)[pri:0, instance:com.api.testDriven.CreateJobAPIExcelDataDrivenTest@506ae4d4]" name="createJobAPITest" class="com.api.testDriven.CreateJobAPIExcelDataDrivenTest"/>
       </group> <!-- smoke -->
       <group name="api">
-        <method signature="LoginAPIExcelDatDrivenTest.loginAPITest(com.dataProvider.api.beans.UserBean)[pri:0, instance:com.api.testDriven.LoginAPIExcelDatDrivenTest@29215f06]" name="loginAPITest" class="com.api.testDriven.LoginAPIExcelDatDrivenTest"/>
+        <method signature="CreateJobAPIExcelDataDrivenTest.createJobAPITest(com.api.request.model.CreateJobPayload)[pri:0, instance:com.api.testDriven.CreateJobAPIExcelDataDrivenTest@506ae4d4]" name="createJobAPITest" class="com.api.testDriven.CreateJobAPIExcelDataDrivenTest"/>
       </group> <!-- api -->
     </groups>
-    <test started-at="2025-11-29T00:43:25 IST" name="Default test" finished-at="2025-11-29T00:43:31 IST" duration-ms="5792">
-      <class name="com.api.testDriven.LoginAPIExcelDatDrivenTest">
-        <test-method signature="loginAPITest(com.dataProvider.api.beans.UserBean)[pri:0, instance:com.api.testDriven.LoginAPIExcelDatDrivenTest@29215f06]" started-at="2025-11-29T00:43:26 IST" name="loginAPITest" description="verify login with FD user" data-provider="LoginAPIExcelDataProvider" finished-at="2025-11-29T00:43:31 IST" duration-ms="4421" status="PASS">
+    <test started-at="2025-11-29T18:51:58 IST" name="Default test" finished-at="2025-11-29T18:52:02 IST" duration-ms="4834">
+      <class name="com.api.testDriven.CreateJobAPIExcelDataDrivenTest">
+        <test-method signature="createJobAPITest(com.api.request.model.CreateJobPayload)[pri:0, instance:com.api.testDriven.CreateJobAPIExcelDataDrivenTest@506ae4d4]" started-at="2025-11-29T18:51:59 IST" name="createJobAPITest" description="Verify if create api is able to create job using excel data" data-provider="CreateJobAPIExcelDataProvider" finished-at="2025-11-29T18:52:02 IST" duration-ms="3798" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[UserPOJO [username=iamsup, password=password]]]>
+                <![CDATA[CreateJobPayload[mst_service_location_id=0, mst_platform_id=2, mst_warrenty_status_id=1, mst_oem_id=1, customer=Customer[first_name=Nels, last_name=Deckow, mobile_number=Brody_Pollich@yahoo.com, mobile_number_alt=Brody_Pollich@yahoo.com, email_id=Ardith.VonRueden@yahoo.com, email_id_alt=Ardith.VonRueden@yahoo.com], customer_address=CustomerAddress[flat_number=Flat-9800, apartment_name=Abc, street_name=Flat-109, landmark=Test, area=TestArea, pincode=92122, country=India, state=Delhi], customer_product=CustomerProduct[dop=2025-10-07T18:30:00.000Z, serial_number=35131017440041, imei1='35131017440041, imei2='35131017440041, popurl=2025-10-07T18:30:00.000Z, product_id=1, mst_model_id=1], problems=[Problems[id=2, remark=NA]]]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAPITest -->
-        <test-method signature="loginAPITest(com.dataProvider.api.beans.UserBean)[pri:0, instance:com.api.testDriven.LoginAPIExcelDatDrivenTest@29215f06]" started-at="2025-11-29T00:43:26 IST" name="loginAPITest" description="verify login with FD user" data-provider="LoginAPIExcelDataProvider" finished-at="2025-11-29T00:43:31 IST" duration-ms="4422" status="PASS">
+        </test-method> <!-- createJobAPITest -->
+        <test-method signature="createJobAPITest(com.api.request.model.CreateJobPayload)[pri:0, instance:com.api.testDriven.CreateJobAPIExcelDataDrivenTest@506ae4d4]" started-at="2025-11-29T18:51:59 IST" name="createJobAPITest" description="Verify if create api is able to create job using excel data" data-provider="CreateJobAPIExcelDataProvider" finished-at="2025-11-29T18:52:02 IST" duration-ms="3798" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[UserPOJO [username=iameng, password=password]]]>
+                <![CDATA[CreateJobPayload[mst_service_location_id=0, mst_platform_id=2, mst_warrenty_status_id=1, mst_oem_id=1, customer=Customer[first_name=Jyoti, last_name=Deckow, mobile_number=Brody_Pollich@yahoo.com, mobile_number_alt=Brody_Pollich@yahoo.com, email_id=Ardith.VonRueden@yahoo.com, email_id_alt=Ardith.VonRueden@yahoo.com], customer_address=CustomerAddress[flat_number=Flat-9800, apartment_name=Abc, street_name=Flat-109, landmark=Test, area=TestArea, pincode=92122, country=India, state=Delhi], customer_product=CustomerProduct[dop=2025-10-07T18:30:00.000Z, serial_number=54331017440041, imei1='54331017440041, imei2='54331017440041, popurl=2025-10-07T18:30:00.000Z, product_id=1, mst_model_id=1], problems=[Problems[id=2, remark=NA]]]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAPITest -->
-        <test-method signature="loginAPITest(com.dataProvider.api.beans.UserBean)[pri:0, instance:com.api.testDriven.LoginAPIExcelDatDrivenTest@29215f06]" started-at="2025-11-29T00:43:26 IST" name="loginAPITest" description="verify login with FD user" data-provider="LoginAPIExcelDataProvider" finished-at="2025-11-29T00:43:31 IST" duration-ms="4421" status="PASS">
+        </test-method> <!-- createJobAPITest -->
+        <test-method signature="createJobAPITest(com.api.request.model.CreateJobPayload)[pri:0, instance:com.api.testDriven.CreateJobAPIExcelDataDrivenTest@506ae4d4]" started-at="2025-11-29T18:51:59 IST" name="createJobAPITest" description="Verify if create api is able to create job using excel data" data-provider="CreateJobAPIExcelDataProvider" finished-at="2025-11-29T18:52:02 IST" duration-ms="3798" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[UserPOJO [username=iamfd, password=password]]]>
+                <![CDATA[CreateJobPayload[mst_service_location_id=0, mst_platform_id=2, mst_warrenty_status_id=1, mst_oem_id=1, customer=Customer[first_name=lara, last_name=Deckow, mobile_number=Brody_Pollich@yahoo.com, mobile_number_alt=Brody_Pollich@yahoo.com, email_id=Ardith.VonRueden@yahoo.com, email_id_alt=Ardith.VonRueden@yahoo.com], customer_address=CustomerAddress[flat_number=Flat-9800, apartment_name=Abc, street_name=Flat-109, landmark=Test, area=TestArea, pincode=92122, country=India, state=Delhi], customer_product=CustomerProduct[dop=2025-10-07T18:30:00.000Z, serial_number=88831017440041, imei1='88831017440041, imei2='88831017440041, popurl=2025-10-07T18:30:00.000Z, product_id=1, mst_model_id=1], problems=[Problems[id=2, remark=NA]]]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAPITest -->
-      </class> <!-- com.api.testDriven.LoginAPIExcelDatDrivenTest -->
+        </test-method> <!-- createJobAPITest -->
+        <test-method signature="createJobAPITest(com.api.request.model.CreateJobPayload)[pri:0, instance:com.api.testDriven.CreateJobAPIExcelDataDrivenTest@506ae4d4]" started-at="2025-11-29T18:51:59 IST" name="createJobAPITest" description="Verify if create api is able to create job using excel data" data-provider="CreateJobAPIExcelDataProvider" finished-at="2025-11-29T18:52:02 IST" duration-ms="3798" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CreateJobPayload[mst_service_location_id=0, mst_platform_id=2, mst_warrenty_status_id=1, mst_oem_id=1, customer=Customer[first_name=pam, last_name=Deckow, mobile_number=Brody_Pollich@yahoo.com, mobile_number_alt=Brody_Pollich@yahoo.com, email_id=Ardith.VonRueden@yahoo.com, email_id_alt=Ardith.VonRueden@yahoo.com], customer_address=CustomerAddress[flat_number=Flat-9800, apartment_name=Abc, street_name=Flat-109, landmark=Test, area=TestArea, pincode=92122, country=India, state=Delhi], customer_product=CustomerProduct[dop=2025-10-07T18:30:00.000Z, serial_number=77731017440041, imei1='77731017440041, imei2='77731017440041, popurl=2025-10-07T18:30:00.000Z, product_id=1, mst_model_id=1], problems=[Problems[id=2, remark=NA]]]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createJobAPITest -->
+      </class> <!-- com.api.testDriven.CreateJobAPIExcelDataDrivenTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

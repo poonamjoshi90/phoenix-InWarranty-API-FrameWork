@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.api.testDriven.LoginAPIExcelDatDrivenTest">
+      <class name="com.api.testDriven.CreateJobAPIExcelDataDrivenTest">
         <methods>
-          <include name="loginAPITest"/>
+          <include name="createJobAPITest" invocation-numbers="0 1 2 3"/>
         </methods>
-      </class> <!-- com.api.testDriven.LoginAPIExcelDatDrivenTest -->
+      </class> <!-- com.api.testDriven.CreateJobAPIExcelDataDrivenTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

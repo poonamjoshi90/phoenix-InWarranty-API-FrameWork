@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.Properties;
 
 public  class ConfigManagerOld {
-	
+
 	private static Properties prop = new Properties();
-	
+
 	static
 	{
 
@@ -26,17 +26,17 @@ public  class ConfigManagerOld {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-     
+
 //System.out.print(prop.getProperty("BASE_URI"));
 
 
 
 	}
-	
+
 	public static  String getProperties(String key)
 	{
 		return prop.getProperty("BASE_URI");
-			
+
 	}
 
 }

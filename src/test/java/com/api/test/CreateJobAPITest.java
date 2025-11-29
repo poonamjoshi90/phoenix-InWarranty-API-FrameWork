@@ -1,36 +1,33 @@
 package com.api.test;
 
+import static com.api.constant.Roles.FD;
+import static com.api.utils.SpecUtil.RequestSpecWIthAuth;
+import static com.api.utils.SpecUtil.responsespec_Ok;
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import com.api.constant.Model;
 import com.api.constant.Problem;
 import com.api.constant.Product;
-import com.api.constant.Roles;
-import static com.api.constant.Roles.*;
 import com.api.request.model.CreateJobPayload;
 import com.api.request.model.Customer;
 import com.api.request.model.CustomerAddress;
 import com.api.request.model.CustomerProduct;
 import com.api.request.model.Problems;
-import com.api.utils.AuthTokenProvider;
-import com.api.utils.ConfigManager;
 import com.api.utils.DateTimeUtil;
-import static com.api.utils.SpecUtil.*;
-import com.github.fge.jsonschema.examples.Utils;
 
-import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 
-import static  io.restassured.RestAssured.*;
-
 public class CreateJobAPITest {
-	
+
 	CreateJobPayload createJobPayload;
-	
+
 	@BeforeMethod(description="Creating create Job API payload with FD user",groups= {"api","regression","smoke"})
 	public void setup()
 	{
@@ -40,12 +37,12 @@ public class CreateJobAPITest {
 	Problems problems = new Problems(Problem.POOR_BATTERY_LIFE.getCode(),"Batary Issue");
 	List<Problems> problemList= new ArrayList<Problems>();
 	problemList.add(problems);
-	
+
 	 //createJobPayload= new CreateJobPayload(0, 2, 1, 1, customer, customeraddress, customer_product, problemList);
-	
+
 
 	}
-	
+
 	@Test(description="verify create job sucessfully with FD user",groups= {"api","regression","smoke"})
 
 	public void createJobAPITest()
@@ -59,8 +56,8 @@ public class CreateJobAPITest {
 		.and()
 	      .body("message",equalTo("Job created successfully. "))
 	      .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("responseSchema/CreateJobAPIResponseSchema.json"));
-	     
-		
+
+
 	}
 
 }

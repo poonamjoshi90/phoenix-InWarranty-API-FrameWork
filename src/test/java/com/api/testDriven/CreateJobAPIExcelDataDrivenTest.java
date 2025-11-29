@@ -12,15 +12,15 @@ import com.api.request.model.CreateJobPayload;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 
-public class CreateJobAPIDataDrivenTest {
+public class CreateJobAPIExcelDataDrivenTest {
 
 	CreateJobPayload createJobPayload;
 
 
-	@Test(description="Verify if create api is able to create job",
+	@Test(description="Verify if create api is able to create job using excel data",
 			dataProviderClass=com.dataProviders.DataProviderUtils.class,
 					groups= {"api","regression","smoke"},
-			dataProvider="CreateJobAPIDataProvider")
+			dataProvider="CreateJobAPIExcelDataProvider")
 	public void createJobAPITest(CreateJobPayload createJobPayload)
 	{
 		given()

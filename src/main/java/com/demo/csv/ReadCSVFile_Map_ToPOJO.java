@@ -17,16 +17,16 @@ import com.opencsv.exceptions.CsvException;
 public class ReadCSVFile_Map_ToPOJO {
 
 	public static void main(String[] args) throws IOException, CsvException {
-		
+
 		InputStream irs= Thread.currentThread().getContextClassLoader().getResourceAsStream("testData/loginCredits.csv");
 		InputStreamReader reader= new InputStreamReader(irs);
 		CSVReader csvReader= new CSVReader(reader);
-		
+
 		CsvToBean<UserPOJO> csvToBean= new CsvToBeanBuilder(csvReader)
 				                    .withType(UserPOJO.class)
 				                    .withIgnoreEmptyLine(true)
 				                    .build();
-		
+
 		List<UserPOJO>userList=csvToBean.parse();
 		System.out.println(userList);
 }

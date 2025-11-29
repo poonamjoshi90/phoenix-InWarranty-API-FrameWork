@@ -4,8 +4,6 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.List;
 
-import com.dataProvider.api.beans.UserBean;
-import com.dataProvider.api.beans.UserPOJO;
 import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -27,7 +25,7 @@ public class CSVReaderUtil {
 				.withType(bean)
 				.withIgnoreEmptyLine(true)
 				.build();
-		
+
 		List<T> List = csvToBean.parse();
 		System.out.println(List);
 		return List.iterator();

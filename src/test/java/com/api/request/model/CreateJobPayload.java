@@ -8,7 +8,7 @@ import com.api.request.model.*;
 
 
 public record CreateJobPayload (
-	
+
 	  int mst_service_location_id,
 	  int mst_platform_id,
 	  int mst_warrenty_status_id,
@@ -19,5 +19,5 @@ public record CreateJobPayload (
 			  List<Problems>problems
 	  )
 {}
-		
+
 
