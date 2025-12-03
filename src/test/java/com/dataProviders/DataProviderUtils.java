@@ -11,6 +11,7 @@ import com.api.request.model.UserCredentials;
 import com.api.utils.CSVReaderUtil;
 import com.api.utils.CreateJobBeanMapper;
 import com.api.utils.ExcelReaderUtilPoiji;
+import com.api.utils.FakerDataGenerator;
 import com.api.utils.JsonReaderUtil;
 import com.dataProvider.api.beans.CreateJobBean;
 import com.dataProvider.api.beans.UserBean;
@@ -75,5 +76,13 @@ public class DataProviderUtils {
 		 return payloadList.iterator();
 		//return ExcelReaderUtilPoiji.loadtestData("testData/LoginCredsExcelData.xlsx", "LoginTestData",UserBean.class);
 	  	}
+	
+	@DataProvider(name="CreateJobAPIFakerDataProvider", parallel=true)
+	public static Iterator<CreateJobPayload> createJobAPIFakerDataProvider()
+	{
+		Iterator<CreateJobPayload> payloadIterator=FakerDataGenerator.generateFakeCreateJobData(10);
+		return payloadIterator;
+	 	}
+
 
 }
