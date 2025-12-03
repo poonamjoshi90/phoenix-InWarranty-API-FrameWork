@@ -5,13 +5,10 @@ import static com.api.utils.SpecUtil.RequestSpecWIthAuth;
 import static com.api.utils.SpecUtil.responsespec_Ok;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.api.constant.Model;
 import com.api.constant.Problem;
 import com.api.constant.Product;
@@ -38,7 +35,7 @@ public class CreateJobAPITest {
 	List<Problems> problemList= new ArrayList<Problems>();
 	problemList.add(problems);
 
-	 //createJobPayload= new CreateJobPayload(0, 2, 1, 1, customer, customeraddress, customer_product, problemList);
+	 createJobPayload= new CreateJobPayload(0, 2, 1, 1, customer, customeraddress, customer_product, problemList);
 
 
 	}

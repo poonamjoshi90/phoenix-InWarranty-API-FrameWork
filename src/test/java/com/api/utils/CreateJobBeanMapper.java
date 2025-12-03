@@ -5,9 +5,9 @@ import java.util.List;
 
 import com.api.request.model.CreateJobPayload;
 import com.api.request.model.Customer;
-import com.api.request.model.CustomerAddress;
-import com.api.request.model.CustomerProduct;
-import com.api.request.model.Problems;
+import com.api.request.model.CustomerAddress12;
+import com.api.request.model.CustomerProduct12;
+import com.api.request.model.Problems12;
 import com.dataProvider.api.beans.CreateJobBean;
 
 public class CreateJobBeanMapper {
@@ -33,7 +33,7 @@ public class CreateJobBeanMapper {
 			bean.getCustomer__email_id(),
 			bean.getCustomer__email_id_alt());
 
-	CustomerAddress customerAddress= new CustomerAddress(bean.getCustomer_address__flat_number(),
+	CustomerAddress12 customerAddress= new CustomerAddress12(bean.getCustomer_address__flat_number(),
 			                           bean.getCustomer_address__apartment_name(),
 			                           bean.getCustomer_address__street_name(),
 			                           bean.getCustomer_address__landmark(),
@@ -44,7 +44,7 @@ public class CreateJobBeanMapper {
 			                           bean.getCustomer_address__state()
 			                         );
 
-	CustomerProduct customerProduct= new CustomerProduct(bean.getCustomer_product__dop(),
+	CustomerProduct12 customerProduct= new CustomerProduct12(bean.getCustomer_product__dop(),
 			                         bean.getCustomer_product__serial_number(),
 			                         bean.getCustomer_product__imei1(),
 			                         bean.getCustomer_product__imei2(),
@@ -59,8 +59,8 @@ public class CreateJobBeanMapper {
 
 
 
-	List<Problems> problemsList= new ArrayList<Problems>();
-	Problems problems = new Problems(Integer.parseInt(bean.getProblems__id()),
+	List<Problems12> problemsList= new ArrayList<Problems12>();
+	Problems12 problems = new Problems12(Integer.parseInt(bean.getProblems__id()),
 			                     bean.getProblems__remark());
 	problemsList.add(problems);
 		CreateJobPayload payload= new CreateJobPayload(mstServiceLocationid, mstPlatformid, mstWarrentystatusid, mstOemid, customer, customerAddress, customerProduct, problemsList);
